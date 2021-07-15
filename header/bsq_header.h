@@ -6,7 +6,7 @@
 /*   By: emgarcia <emgarcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:33:14 by agogolev          #+#    #+#             */
-/*   Updated: 2021/07/15 14:09:53 by emgarcia         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:22:17 by emgarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ int		ft_next_obst(int i, int j, t_map map1);
 void	ft_find_obst(t_map map1);
 int		ft_count_obst(char **b, t_map map1);
 char	*ft_first_line(int len_fl, char *mapa);
+void	ft_find_cordenates(t_map map1);
 
 #endif

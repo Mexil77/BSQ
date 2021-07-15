@@ -6,7 +6,7 @@
 /*   By: emgarcia <emgarcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 12:40:48 by emgarcia          #+#    #+#             */
-/*   Updated: 2021/07/15 14:12:45 by emgarcia         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:26:05 by emgarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	ft_next_obst(int i, int j, t_map map1)
 	int	k;
 
 	k = 0;
-	while (k < 16)
+	while (k < ft_count_obst(map1.map, map1) * 2)
 	{
 		if (k % 2 == 0)
 			if (map1.obst[k] == i)
@@ -63,7 +63,7 @@ int	ft_find_sq(int i, int j, int index, t_map map1)
 
 	k = i;
 	l = j;
-	while (k < index + 1 + i)
+	while (k < index + i)
 	{
 		while (l < index + j)
 		{
