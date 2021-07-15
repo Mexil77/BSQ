@@ -13,7 +13,7 @@ void	ft_gen_final(t_map map1)
 	{
 		while (j < map1.max_sqr + map1.larg_j)
 		{
-			map1.map[i][j] = 'x';
+			map1.map[i][j] = map1.str[ft_strlen(map1.str) - 1];
 			j++;
 		}
 		j = map1.larg_j;
@@ -53,13 +53,13 @@ void	ft_find_cordenates(t_map map1)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	while (i <= map1.max_i)
 	{
 		while (j < map1.max_j)
 		{
-			if (map1.map[i][j] != 'o')
+			if (map1.map[i][j] != map1.str[ft_strlen(map1.str) - 2])
 			{
 				if (j < ft_next_obst(i, j, map1))
 				{
@@ -75,4 +75,29 @@ void	ft_find_cordenates(t_map map1)
 		j = 0;
 		i++;
 	}
+}
+
+int	ft_count_obst(char **b, t_map map1)
+{
+	int	i;
+	int	j;
+	int	obst;
+
+	i = 0;
+	j = 0;
+	obst = 0;
+	while (i < map1.max_total_i)
+	{
+		while (j < map1.max_total_j)
+		{
+			if (b[i][j] == '0')
+			{
+				obst++;
+			}
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (obst);
 }

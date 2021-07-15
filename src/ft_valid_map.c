@@ -6,7 +6,7 @@
 /*   By: emgarcia <emgarcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 14:29:04 by agogolev          #+#    #+#             */
-/*   Updated: 2021/07/15 13:43:33 by emgarcia         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:08:59 by emgarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ void	ft_main_valid_map(char *mapa)
 	int		glo_nrow;
 	int		len_fl;
 	char	**out;
+	char	*str;
 
 	len_fl = ft_first_valid_map(mapa);
 	glo_nrow = ft_hard_atoi(mapa);
@@ -123,5 +124,6 @@ void	ft_main_valid_map(char *mapa)
 		ft_putstr(2, "map error");
 		return ;
 	}
-	solve(ncol, glo_nrow, out);
+	str = ft_first_line(len_fl, mapa);
+	solve(ncol, glo_nrow, out, str);
 }

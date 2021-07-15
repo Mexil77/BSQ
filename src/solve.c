@@ -6,7 +6,7 @@
 /*   By: emgarcia <emgarcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/12 12:40:48 by emgarcia          #+#    #+#             */
-/*   Updated: 2021/07/15 13:48:27 by emgarcia         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:12:45 by emgarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_find_obst(t_map map1)
 	int	j;
 	int	k;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	k = 0;
 	map1.obst = malloc((map1.max_i * map1.max_j) * sizeof(int));
@@ -26,7 +26,7 @@ void	ft_find_obst(t_map map1)
 	{
 		while (j < map1.max_j && map1.map[i][j] != '\0')
 		{
-			if (map1.map[i][j] == 'o')
+			if (map1.map[i][j] == map1.str[ft_strlen(map1.str) - 2])
 			{
 				map1.obst[k] = i;
 				map1.obst[k + 1] = j;
@@ -63,13 +63,13 @@ int	ft_find_sq(int i, int j, int index, t_map map1)
 
 	k = i;
 	l = j;
-	while (k < index + 1 + (i - 1))
+	while (k < index + 1 + i)
 	{
 		while (l < index + j)
 		{
 			if (k >= map1.max_total_i || l >= map1.max_total_j)
 				return (index - 1);
-			else if (map1.map[k][l] != '.')
+			else if (map1.map[k][l] != map1.str[ft_strlen(map1.str) - 3])
 				return (index - 1);
 			l++;
 		}
@@ -84,7 +84,7 @@ void	ft_print_map(char **b, t_map map1)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	while (i < map1.max_total_i)
 	{
@@ -100,7 +100,7 @@ void	ft_print_map(char **b, t_map map1)
 	}
 }
 
-int	solve(int c, int r, char **b)
+int	solve(int c, int r, char **b, char *str)
 {
 	t_map	map1;
 
@@ -115,7 +115,8 @@ int	solve(int c, int r, char **b)
 	map1.total_obst = 0;
 	map1.map = b;
 	map1.obst = 0;
-	map1.obst = malloc(16 * sizeof(int));
+	map1.str = str;
+	map1.obst = malloc((ft_count_obst(b, map1) * 2) * sizeof(int));
 	ft_find_obst(map1);
 	ft_find_cordenates(map1);
 	ft_gen_final(map1);

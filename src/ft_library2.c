@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_library2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: agogolev <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: emgarcia <emgarcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 19:46:40 by agogolev          #+#    #+#             */
-/*   Updated: 2021/07/15 11:49:09 by agogolev         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:08:07 by emgarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,18 @@ int	ft_strlen(char *str)
 	return (index);
 }
 
-/*int	ft_nrows(char *map)
+char	*ft_first_line(int len_fl, char *mapa)
 {
-	int	index;
-	int	count;
+	int		index;
+	char	*str;
 
+	str = (char *)malloc(sizeof(char) * len_fl + 1);
 	index = 0;
-	count = 0;
-	while (!(ft_is_0(map[index])))
+	while (index <= len_fl)
 	{
-		if (ft_is_n(map[index]))
-			count++;
+		str[index] = mapa[index];
 		index++;
 	}
-	return (count);
-}*/
-/*count in map all line breaks in rows
- because last digit is \0 & first line compensate */
+	str[index] = '\0';
+	return (str);
+}

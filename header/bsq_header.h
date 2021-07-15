@@ -6,7 +6,7 @@
 /*   By: emgarcia <emgarcia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/14 16:33:14 by agogolev          #+#    #+#             */
-/*   Updated: 2021/07/15 13:45:25 by emgarcia         ###   ########.fr       */
+/*   Updated: 2021/07/15 14:09:53 by emgarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_map
 	int		total_obst;
 	char	**map;
 	int		*obst;
+	char	*str;
 }						t_map;
 
 /*here list all used functions*/
@@ -47,11 +48,13 @@ bool	ft_char_is_printable(char c);
 char	**ft_cut_line(int index, int ncol, char *mapa, char **out);
 int		ft_valid_out(int glo_nrow, char **out);
 void	ft_main_valid_map(char *mapa);
-int		solve(int c, int r, char **b);
+int		solve(int c, int r, char **b, char *str);
 void	ft_print_map(char **b, t_map map1);
 void	ft_gen_final(t_map map1);
 int		ft_find_sq(int i, int j, int index, t_map map1);
 int		ft_next_obst(int i, int j, t_map map1);
 void	ft_find_obst(t_map map1);
+int		ft_count_obst(char **b, t_map map1);
+char	*ft_first_line(int len_fl, char *mapa);
 
 #endif
